@@ -14,11 +14,7 @@
 
 //gloabl variables
 
-//staorage of the images
-//page lement neede to reference
-var busImageOne = document.getElementById(imageOne);
-var busImageTwo = document.getElementById(imageTwo);
-var allBusImages=[];
+var allBusImages=[]; //--> array to store random generated images
 
 //constructor function for the images
 
@@ -30,11 +26,15 @@ this.timesRendered= 0;
 allBusImages.push(this);
 }
 
-new busImage('StarWarsBag', './img/bag[1].jpg');
-new busImage('BananaCutter', './img/banana[1].jpg');
+var bag= new busItems('Bag', './img/bag[1].jpg');
+var banana= new busItems('Banana', './img/banana[1].jpg');
 
-busImageOne.src= allBusImages[0].image;
-busImageOne.alt= allBusImages[0].name;
+//generate random images
 
-busImageTwo.src= allBusImages[1].image;
-busImagetwo.alt= allBusImages[1].name;
+
+//render images
+//no duplicates
+
+
+
+//conditional logic to render images different
