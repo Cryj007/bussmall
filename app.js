@@ -136,18 +136,32 @@ function render(){
 
 }
 render();
-// function renderImage
-  
-
-//conditional logic to render images different
-
 
 //putting in the eventListener, a function
-
 //record the clicks
+
+function eventClicks(event){
+    var picId= event.target.getAttribute('alt');
+    console.log(picId);
+
+    for(var i=0;i<busItems.length;i++){
+        if(picId === allBusImages[i].name)
+        allBusImages[i].timesCLicked++;
+    }
+if(totalClicks<5){
+totalClicks++;
+        //  console.log(allBusImages[i]);
+        }
+    }
+render();
+
+one.addEventListener('click', eventClicks);
+two.addEventListener('click', eventClicks);
+three.addEventListener('click', eventClicks);
+
+render();
 
 //get new images after updating products
 
 //add in chart.js
 
-//
