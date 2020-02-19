@@ -16,10 +16,10 @@
 var imageOne= document.getElementById('image1');
 var imageTwo= document.getElementById('image2');
 var imageThree= document.getElementById('image3');
-var imageFour= document.getElementById('image4');
-var imageFive= document.getElementById('image5');
-var imageSix= document.getElementById('image6');
-var imageSeven= document.getElementById('image7');
+// var imageFour= document.getElementById('image4');
+// var imageFive= document.getElementById('image5');
+// var imageSix= document.getElementById('image6');
+// var imageSeven= document.getElementById('image7');
 var totalClicks= 0
 var allBusImages=[]; //--> array to store random generated images
 var chart= null; //-->i believe it can be changed later, no current value yet
@@ -52,15 +52,16 @@ new busItems('Shark', './img/shark.jpg');
 
 //generate random images
 function randomRoll() {
-    var randomPic= Math.floor(Math.random() *allBusImages.length);
-    var random= allBusImages[randomPic];
+    var randomPic= Math.floor(Math.random() * allBusImages.length);
+    var random = allBusImages[randomPic];
 
     while(
-      random.name === imageOne||
-      random.name === imageTwo  
-    ){
-        var randomPic= Math.floor(Math.random() *allBusImages.length);
-        var random= image[randomPic];
+      random.name === imageOne.alt||
+      random.name === imageTwo.alt||
+      random.name === imageThree.alt )
+      {
+        var randomPic= Math.floor(Math.random() * allBusImages.length);
+        var random= allBusImages[randomPic]; 
     }
     return random;
 }
@@ -68,37 +69,45 @@ function randomRoll() {
 //no duplicates
 
 var randomImage1 = randomRoll();
+var randomImage2 = randomRoll();
+var randomImage3 = randomRoll();
 var one = document.getElementById('image1');
 var two = document.getElementById('image2');
 var three = document.getElementById('image3');
 var four = document.getElementById('image4');
-var five = document.getElementById('image5');
+var five = document.getElementById('image5');       
 var six = document.getElementById('image6');
 var seven = document.getElementById('image7');
 
 
 // console.log('HELLOOO ', randomImage1);
-one.setAttribute('src', randomImage1.image);
-one.setAttribute('alt', randomImage1.name);
+function render(){
 
-two.setAttribute('src', randomImage1.image);
-two.setAttribute('alt', randomImage1.name);
 
-three.setAttribute('src', randomImage1.image);
-three.setAttribute('alt', randomImage1.name);
+    one.setAttribute('src', randomImage1.image);
+    one.setAttribute('alt', randomImage1.name);
+    // allBusImages[randomRoll].timesRendered++;
 
-four.setAttribute('src', randomImage1.image);
-four.setAttribute('alt', randomImage1.name);
+    two.setAttribute('src', randomImage2.image);
+    two.setAttribute('alt', randomImage2.name);
 
-five.setAttribute('src', randomImage1.image);
-five.setAttribute('alt', randomImage1.name);
+    three.setAttribute('src', randomImage3.image);
+    three.setAttribute('alt', randomImage3.name);
 
-six.setAttribute('src', randomImage1.image);
-six.setAttribute('alt', randomImage1.name);
+    // four.setAttribute('src', randomImage1.image);
+    // four.setAttribute('alt', randomImage1.name);
 
-seven.setAttribute('src', randomImage1.image);
-seven.setAttribute('alt', randomImage1.name);
+    // five.setAttribute('src', randomImage1.image);
+    // five.setAttribute('alt', randomImage1.name);
 
+    // six.setAttribute('src', randomImage1.image);
+    // six.setAttribute('alt', randomImage1.name);
+
+    // seven.setAttribute('src', randomImage1.image);
+    // seven.setAttribute('alt', randomImage1.name);
+
+}
+render();
 // function renderImage
   
 
