@@ -16,10 +16,23 @@
 var imageOne= document.getElementById('image1');
 var imageTwo= document.getElementById('image2');
 var imageThree= document.getElementById('image3');
-// var imageFour= document.getElementById('image4');
-// var imageFive= document.getElementById('image5');
-// var imageSix= document.getElementById('image6');
-// var imageSeven= document.getElementById('image7');
+var imageFour= document.getElementById('image4');
+var imageFive= document.getElementById('image5');
+var imageSix= document.getElementById('image6');
+var imageSeven= document.getElementById('image7');
+var imageEight= document.getElementById('image8');
+var imageNine= document.getElementById('image9');
+var imageTen= document.getElementById('image10');
+var imageEleven= document.getElementById('image11');
+var imageTwelve= document.getElementById('image12');
+var imageThirteen= document.getElementById('image13');
+var imageFourteen= document.getElementById('image14');
+var imageFifteen= document.getElementById('image15');
+var imageSixteen= document.getElementById('image16');
+var imageSeventeen= document.getElementById('image17');
+var imageEigthteen= document.getElementById('image18');
+var imageNineteen= document.getElementById('image19');
+var imageTwenty= document.getElementById('image20');
 var totalClicks= 0
 var allBusImages=[]; //--> array to store random generated images
 var chart= null; //-->i believe it can be changed later, no current value yet
@@ -41,10 +54,23 @@ function busItems(name, imagePath){ //-->the properties I want to show up in my 
 new busItems('Bag', './img/bag.jpg'); //--> the thing I want to show up with the properties above
 new busItems('Banana', './img/banana.jpg');
 new busItems('Bathroom', './img/bathroom.jpg');
+new busItems('Boots', './img/boots.jpg');
+new busItems('Breakfast', './img/breakfast.jpg');
 new busItems('Bubblegum', './img/bubblegum.jpg');
+new busItems('Chair', './img/chair.jpg');
 new busItems('Cthulhu', './img/Cthulhu.jpg');
 new busItems('Dog-Duck', './img/dog-duck.jpg');
+new busItems('Dragon', './img/dragon.jpg');
+new busItems('Pen', './img/pen.jpg');
+new busItems('Pet-Sweep', './img/pet-sweep.jpg');
+new busItems('Scissors', './img/scissors.jpg');
 new busItems('Shark', './img/shark.jpg');
+new busItems('Sweep', './img/sweep.png');
+new busItems('Tauntaun', './img/tauntaun.jpg');
+new busItems('Unicorn', './img/unicorn.jpg');
+new busItems('Usb', './img/usb.gif');
+new busItems('Water-Can', './img/water-can.jpg');
+new busItems('Wine-Glass', './img/wine-glass.jpg');
 
 //put images in html
 
@@ -54,18 +80,20 @@ new busItems('Shark', './img/shark.jpg');
 function randomRoll() {
     var randomPic= Math.floor(Math.random() * allBusImages.length);
     var random = allBusImages[randomPic];
-
+console.log(random)
     while(
-      random.name === imageOne.alt||
-      random.name === imageTwo.alt||
-      random.name === imageThree.alt )
+      random.imageTwo === imageOne.alt||
+      random.imageThree === imageTwo.alt||
+      random.imageOne === imageThree.alt )
       {
         var randomPic= Math.floor(Math.random() * allBusImages.length);
         var random= allBusImages[randomPic]; 
+        console.log()
     }
     return random;
 }
 //render images
+// function randomRoll()
 //no duplicates
 
 var randomImage1 = randomRoll();
