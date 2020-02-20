@@ -99,6 +99,7 @@ console.log(random)
 var randomImage1 = randomRoll();
 var randomImage2 = randomRoll();
 var randomImage3 = randomRoll();
+
 var one = document.getElementById('image1');
 var two = document.getElementById('image2');
 var three = document.getElementById('image3');
@@ -110,6 +111,10 @@ var seven = document.getElementById('image7');
 
 // console.log('HELLOOO ', randomImage1);
 function render(){
+
+    randomImage1 = randomRoll();
+    randomImage2 = randomRoll();
+    randomImage3 = randomRoll();
 
 
     one.setAttribute('src', randomImage1.image);
@@ -135,7 +140,7 @@ function render(){
     // seven.setAttribute('alt', randomImage1.name);
 
 }
-render();
+// render();
 
 //putting in the eventListener, a function
 //record the clicks
@@ -151,9 +156,13 @@ function eventClicks(event){
 if(totalClicks<5){
 totalClicks++;
         //  console.log(allBusImages[i]);
+        } else {
+            alert('Alright, chill out bro you clicked enough');
         }
+
+    render();
     }
-render();
+// render();
 
 one.addEventListener('click', eventClicks);
 two.addEventListener('click', eventClicks);
