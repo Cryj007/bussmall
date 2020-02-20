@@ -36,6 +36,9 @@ var imageTwenty= document.getElementById('image20');
 var totalClicks= 0
 var allBusImages=[]; //--> array to store random generated images
 var chart= null; //-->i believe it can be changed later, no current value yet
+var chartNames=[];
+var chartRendered=[];
+var chartClicks=[];
 
 //images in html
 // image1
@@ -109,7 +112,6 @@ var six = document.getElementById('image6');
 var seven = document.getElementById('image7');
 
 
-// console.log('HELLOOO ', randomImage1);
 function render(){
 
     randomImage1 = randomRoll();
@@ -127,6 +129,7 @@ function render(){
     three.setAttribute('src', randomImage3.image);
     three.setAttribute('alt', randomImage3.name);
 }
+
 
 //putting in the eventListener, a function
 //record the clicks
@@ -157,9 +160,9 @@ three.addEventListener('click', eventClicks);
 
 render();
 
-//add in chart.js
-var canvas= document.getElementById('canvas');
-var ctx= canvas.getContext('2d');
+// //add in chart.js
+// var canvas= document.getElementById('canvas');
+// var ctx= canvas.getContext('2d');
 
 //make the click data match the chart
 function chartLabels(arr){//-->arr is for array 
@@ -171,3 +174,78 @@ for(var i=0; i<arr.length;i++){
 }
 return label;
 }
+
+var ctx = document.getElementById('canvas').getContext('2d');
+chartLabels(ctx, {
+    type: 'bar',
+    data: {
+        labels: chartNames,
+        datasets: [{
+            label: 'times Clicked',
+            data: chartClicks,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero: true
+                }
+            }]
+        }
+    }
+});
+//Added from class demo
+// chartLabels = new Chart(ctx, {
+//     type: 'bar',
+//     data: {
+//       labels: chartNames,
+//       datasets: [{
+//         label: 'Times Clicked',
+//         data: timesCLicked,
+//         backgroundColor: [
+//           'rgba(255, 99, 132, 0.2)',
+//           'rgba(54, 162, 235, 0.2)',
+//           'rgba(255, 206, 86, 0.2)',
+//           'rgba(75, 192, 192, 0.2)',
+//           'rgba(153, 102, 255, 0.2)',
+//           'rgba(255, 159, 64, 0.2)'
+//         ],
+//         borderColor: [
+//           'rgba(255, 99, 132, 1)',
+//           'rgba(54, 162, 235, 1)',
+//           'rgba(255, 206, 86, 1)',
+//           'rgba(75, 192, 192, 1)',
+//           'rgba(153, 102, 255, 1)',
+//           'rgba(255, 159, 64, 1)'
+//         ],
+//         borderWidth: 1
+//       }]
+//     },
+//     options: {
+//       scales: {
+//         yAxes: [{
+//           ticks: {
+//             beginAtZero: true
+//           }
+//         }]
+//       }
+//     }
+//   });
