@@ -126,24 +126,11 @@ function render(){
 
     three.setAttribute('src', randomImage3.image);
     three.setAttribute('alt', randomImage3.name);
-
-    // four.setAttribute('src', randomImage1.image);
-    // four.setAttribute('alt', randomImage1.name);
-
-    // five.setAttribute('src', randomImage1.image);
-    // five.setAttribute('alt', randomImage1.name);
-
-    // six.setAttribute('src', randomImage1.image);
-    // six.setAttribute('alt', randomImage1.name);
-
-    // seven.setAttribute('src', randomImage1.image);
-    // seven.setAttribute('alt', randomImage1.name);
-
 }
-// render();
 
 //putting in the eventListener, a function
 //record the clicks
+//get new images after updating products
 
 function eventClicks(event){
     var picId= event.target.getAttribute('alt');
@@ -153,7 +140,7 @@ function eventClicks(event){
         if(picId === allBusImages[i].name)
         allBusImages[i].timesCLicked++;
     }
-if(totalClicks<5){
+if(totalClicks<25){
 totalClicks++;
         //  console.log(allBusImages[i]);
         } else {
@@ -170,7 +157,17 @@ three.addEventListener('click', eventClicks);
 
 render();
 
-//get new images after updating products
-
 //add in chart.js
+var canvas= document.getElementById('canvas');
+var ctx= canvas.getContext('2d');
 
+//make the click data match the chart
+function chartLabels(arr){//-->arr is for array 
+var label= [];
+console.log(arr);
+
+for(var i=0; i<arr.length;i++){
+    label.push(arr[i].name);
+}
+return label;
+}
